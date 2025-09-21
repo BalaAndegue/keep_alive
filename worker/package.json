@@ -1,0 +1,17 @@
+{
+  "name": "keepalive-worker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --watch . --exec node worker.js",
+    "start": "node worker.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "cron": "^2.1.0",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

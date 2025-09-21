@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: keepalive-api
+    env: node
+    plan: free
+    buildCommand: "cd api && npm install && npx prisma generate"
+    startCommand: "cd api && npm start"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: PORT
+        value: 4000
+
+  - type: worker
+    name: keepalive-worker
+    env: node
+    plan: free
+    buildCommand: "cd worker && npm install && npx prisma generate"
+    startCommand: "cd worker && npm start"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
